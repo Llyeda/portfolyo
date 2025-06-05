@@ -1,0 +1,27 @@
+/* src/components/CVThumbsIndicator.css */
+.cv-thumbs-indicator-container {
+    position: fixed;
+    bottom: 30px; /* Adjust position from bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px; /* Space between thumbs */
+    z-index: 1000; /* Ensure it's above other content */
+    padding: 5px 10px;
+    background-color: rgba(255, 255, 255, 0.3); /* Optional subtle background */
+    border-radius: 10px;
+    backdrop-filter: blur(5px); /* Optional glassmorphism */
+}
+
+.cv-thumb {
+    width: 5px; /* Size of the thumb */
+    height: 5px; /* Size of the thumb */
+    background-color: rgba(0, 0, 0, 0.3); /* Inactive thumb color */
+    border-radius: 50%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cv-thumb.active {
+    background-color: #131ba1; /* Active thumb color (your blue) */
+    transform: scale(1.2);
+}

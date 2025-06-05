@@ -1,0 +1,54 @@
+.projects-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: #F8F4E9;
+    overflow: hidden;
+    font-family: 'Lucida Sans Typewriter', sans-serif;
+}
+
+.projects-header {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    z-index: 10;
+    color: var(--text-color-headings);
+    text-align: left;
+}
+
+.projects-header h2 {
+    font-size: 80px;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--theme-blue);
+    text-transform: lowercase;
+}
+
+.projects-header p {
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--text-color-cv-items-body);
+    margin: 0;
+}
+
+/* Canvas container styles */
+.projects-section canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .projects-header {
+        top: 1rem;
+        left: 1rem;
+    }
+
+    .projects-header h2 {
+        font-size: 16px;
+    }
+
+    .projects-header p {
+        font-size: 11px;
+    }
+} 

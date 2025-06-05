@@ -1,0 +1,56 @@
+﻿/* src/components/EnhancedScrollGuide.css */
+.enhanced-scroll-guide-wrapper {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    display: flex; /* Still useful if you add something next to the container later */
+    align-items: center;
+    z-index: 1000;
+    pointer-events: none; /* Wrapper itself doesn't need events */
+}
+
+/* DELETE THESE RULES related to labels */
+/*
+.scroll-guide-labels-container { ... }
+.scroll-guide-label { ... }
+.scroll-guide-label > span { ... }
+*/
+
+/* Styles for the scrollbar mechanism */
+.scroll-guide-container {
+    width: 3px;
+    height: 250px; /* Your desired longer height */
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.08);
+    border-radius: 3px;
+    pointer-events: auto; /* Enable events if you plan to make it draggable */
+}
+
+.scroll-guide-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 3px;
+}
+
+.scroll-guide-thumb {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #555;
+    border-radius: 3px;
+}
+
+/* Media query for scrollbar container height */
+@media (max-width: 768px) {
+    .enhanced-scroll-guide-wrapper {
+        right: 10px;
+    }
+    /* Labels related styles removed */
+    .scroll-guide-container {
+        height: 180px; /* Your desired longer mobile height */
+        width: 2px;
+    }
+}

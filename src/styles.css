@@ -1,0 +1,41 @@
+﻿@font-face {
+    font-family: 'Lucida Sans Typewriter';
+    src: url('/fonts/LucidaSansTypewriter.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lucida Sans Typewriter', monospace, sans-serif; /* Or your chosen default font */
+
+    background-color: #F8F4E9; /* <--- YOUR DESIRED GLOBAL BACKGROUND COLOR */
+
+    color: #4A4A4A; /* A suitable default text color that contrasts with the light background */
+    min-height: 100%; /* Ensures body takes at least full viewport height */
+    width: 100%; /* Ensures body takes full viewport width */
+    box-sizing: border-box;
+    scrollbar-width: none; /* Includes padding and border in the element's total width and height */
+}
+
+body::-webkit-scrollbar {
+    display: none;} 
+#root {
+    min-height: 100vh; 
+}
+
+.canvas-section {
+    height: 100vh;
+    width: 100%;
+    background-color: #F8F4E9;
+    position: relative;
+    will-change: opacity, transform;
+}
+
+    .canvas-section canvas {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
