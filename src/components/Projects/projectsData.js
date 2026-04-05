@@ -1,7 +1,7 @@
 export const projectsData = [
     { 
         id: 'proj1', 
-        name: 'new project name', 
+        name: 'project 1', 
         type: 'residential',
         year: '2024',
         description: 'A contemporary villa design featuring sustainable materials and modern architecture.',
@@ -10,7 +10,7 @@ export const projectsData = [
     },
     { 
         id: 'proj2', 
-        name: 'eco tower', 
+        name: 'project 2', 
         type: 'commercial',
         year: '2023',
         description: 'An eco-friendly skyscraper incorporating green technologies and vertical gardens.',
@@ -19,7 +19,7 @@ export const projectsData = [
     },
     { 
         id: 'proj3', 
-        name: 'urban park', 
+        name: 'project 3', 
         type: 'landscape',
         year: '2022',
         description: 'A modern urban park design promoting community interaction and environmental awareness.',
@@ -28,7 +28,7 @@ export const projectsData = [
     },
     { 
         id: 'proj4', 
-        name: 'skyport hub', 
+        name: 'project 4', 
         type: 'infrastructure',
         year: '2024',
         description: 'A futuristic transportation hub integrating multiple modes of transport.',
@@ -37,7 +37,7 @@ export const projectsData = [
     },
     { 
         id: 'proj5', 
-        name: 'art museum', 
+        name: 'project 5', 
         type: 'cultural',
         year: '2021',
         description: 'A contemporary art museum with innovative exhibition spaces.',
@@ -46,7 +46,7 @@ export const projectsData = [
     },
     { 
         id: 'proj6', 
-        name: 'bridge design', 
+        name: 'project 6', 
         type: 'infrastructure',
         year: '2022',
         description: 'An architectural bridge design combining functionality with aesthetic appeal.',
@@ -55,7 +55,7 @@ export const projectsData = [
     },
     { 
         id: 'proj7', 
-        name: 'residential complex', 
+        name: 'project 7', 
         type: 'residential', 
         year: '2024', 
         description: 'A large-scale residential living complex with integrated community features.', 
@@ -64,7 +64,7 @@ export const projectsData = [
     },
     { 
         id: 'proj8', 
-        name: 'concert hall', 
+        name: 'project 8', 
         type: 'cultural', 
         year: '2025', 
         description: 'An acoustic-driven cultural concert hall designed for immersive musical experiences.', 

@@ -22,7 +22,7 @@ export default function App() {
 
             <CVSection ref={cvSectionRef} />
 
-            <div style={{ height: '25vh', backgroundColor: '#F8F4E9' }}></div>
+            <div style={{ height: '5vh', backgroundColor: '#F8F4E9' }}></div>
 
             <ProjectsSection ref={projectsSectionRef} />
 

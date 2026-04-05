@@ -153,7 +153,7 @@ const ProjectsSection = () => {
                             </div>
                             <div className="project-content">
                                 <div className="project-title-row">
-                                    <h3 className="project-title">project{index + 1}</h3>
+                                    <h3 className="project-title">{project.name}</h3>
                                     <span className="project-year">{project.year}</span>
                                 </div>
                                 <div className="project-meta">

@@ -323,6 +323,7 @@
 .dot-rating-item .dots { display: flex; }
 .dot-rating-item .dot { height: 8px; width: 8px; background-color: #e0e0e0; border-radius: 50%; display: inline-block; margin-left: 3px; }
 .dot-rating-item .dot.filled { background-color: var(--theme-blue); }
+.dot-rating-item .dot.half-filled { background: linear-gradient(to right, var(--theme-blue) 50%, #e0e0e0 50%); }
 .language-level.native { font-style: italic; color: var(--text-color-cv-items-body); }
 
 .cv-block p strong { display: inline-block; margin-right: 5px; font-weight: normal; color: var(--text-color-headings); } /* Example styling for strong */

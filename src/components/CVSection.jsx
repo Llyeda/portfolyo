@@ -14,9 +14,13 @@ const DotRating = ({ label, level, max = 5 }) => {
         <div className="dot-rating-item">
             <span>{label}</span>
             <span className="dots">
-                {[...Array(max)].map((_, i) => (
-                    <span key={i} className={`dot ${i < level ? 'filled' : ''}`}></span>
-                ))}
+                {[...Array(max)].map((_, i) => {
+                    let dotClass = "dot";
+                    if (i < Math.floor(level)) dotClass += " filled";
+                    else if (i === Math.floor(level) && level % 1 !== 0) dotClass += " half-filled";
+                    
+                    return <span key={i} className={dotClass}></span>;
+                })}
             </span>
         </div>
     );
@@ -26,6 +30,12 @@ const ExperienceItem = ({ company, description, location, dateText, projects }) 
     const [isOpen, setIsOpen] = useState(false);
     const hasProjects = projects && projects.length > 0;
 
+    const toggleOpen = () => {
+        setIsOpen(!isOpen);
+        // Refresh ScrollTrigger after the UI updates so the pin geometry stays accurate when scrolled
+        setTimeout(() => ScrollTrigger.refresh(), 350);
+    };
+
     return (
         <div className="cv-item">
             <h4>{company}</h4>
@@ -33,7 +43,7 @@ const ExperienceItem = ({ company, description, location, dateText, projects }) 
             <p>{location}</p>
             <p 
                 className={`cv-item-dates ${hasProjects ? 'clickable' : ''}`} 
-                onClick={() => hasProjects && setIsOpen(!isOpen)}
+                onClick={hasProjects ? toggleOpen : undefined}
             >
                 {dateText} {hasProjects && <span className={`expand-icon ${isOpen ? 'open' : ''}`}>▼</span>}
             </p>
@@ -85,9 +95,9 @@ const CVSection = React.forwardRef((props, ref) => {
         const finalXPercent = -(numSlides - 1) * 100; // Will be -100 for 2 slides
 
         // --- Define SCROLL DISTANCES (USER SCROLL) ---
-        const scrollDistancePerPauseOnSlide = window.innerHeight * 0.3; // Pause on Slide 1
-        const scrollDistanceForS1ToS2Transition = window.innerHeight * 0.7; // Transition S1 -> S2
-        const scrollDistanceForLingerOnLastSlide = window.innerHeight * 0.4; // Linger on Slide 2
+        const scrollDistancePerPauseOnSlide = window.innerHeight * 0.25; // Pause on Slide 1
+        const scrollDistanceForS1ToS2Transition = window.innerHeight * 0.85; // Transition S1 -> S2
+        const scrollDistanceForLingerOnLastSlide = window.innerHeight * 0.05; // Drastically reduced linger to make the connection to the next section smooth
 
         let calculatedTotalPinDurationPx = 0;
         // Pause on Slide 1
@@ -101,7 +111,8 @@ const CVSection = React.forwardRef((props, ref) => {
             scrollTrigger: {
                 trigger: currentHorizontalSectionDOM,
                 pin: true,
-                scrub: 1,
+                scrub: 0.6, // Tighter scrub value prevents visual tearing/lag when unpinning to the next section
+                anticipatePin: 1,
                 start: "top top",
                 end: `+=${calculatedTotalPinDurationPx}`,
                 // markers: true, // Uncomment for debugging
@@ -179,7 +190,15 @@ const CVSection = React.forwardRef((props, ref) => {
                             <div className="slide1-right-column">
                                 <div className="cv-block" ref={toolsContentRef}>
                                     <h3>tools</h3>
-                                    <DotRating label="revit" level={4} /><DotRating label="photoshop" level={4} /><DotRating label="indesign" level={3} /><DotRating label="rhinoceros" level={4} /><DotRating label="blender" level={3} /><DotRating label="autocad" level={4} /><DotRating label="sketchup" level={3} /><DotRating label="adobe illustrator" level={4} /><DotRating label="microsoft office" level={4} />
+                                <DotRating label="revit" level={4.5} />
+                                <DotRating label="autocad" level={4} />
+                                <DotRating label="photoshop" level={4} />
+                                <DotRating label="indesign" level={3} />
+                                <DotRating label="rhinoceros" level={4} />
+                                <DotRating label="blender" level={2.5} />
+                                <DotRating label="sketchup" level={3} />
+                                <DotRating label="adobe illustrator" level={3.5} />
+                                <DotRating label="microsoft office" level={4} />
                                 </div>
                                 <div className="cv-block skills-block" ref={skillsContentRef}>
                                     <h3>skills</h3>
@@ -192,7 +211,8 @@ const CVSection = React.forwardRef((props, ref) => {
                                 <div className="cv-block" ref={languagesContentRef}>
                                     <h3>languages</h3>
                                     <div className="language-item"><span>turkish</span> <span className="language-level native">native</span></div>
-                                    <DotRating label="english" level={4} /><DotRating label="german" level={2} />
+                                    <DotRating label="english - ielts 6.5/9.0" level={4} />
+                                    <DotRating label="german" level={2} />
                                 </div>
                             </div>
                         </div>
